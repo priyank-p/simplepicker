@@ -1,0 +1,26 @@
+{
+  "name": "simplepicker",
+  "version": "1.0.0",
+  "description": "Simple date picker written in vanilla js.",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/priyankp10/simplepicker.git"
+  },
+  "keywords": [
+    "simple",
+    "date",
+    "picker",
+    "datepicker",
+    "date-picker"
+  ],
+  "author": "Priyank Patel <priyankp390@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/priyankp10/simplepicker/issues"
+  },
+  "homepage": "https://github.com/priyankp10/simplepicker#readme"
+}
