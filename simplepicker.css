@@ -158,6 +158,7 @@
 
 .simplepicker-time-section {
   display: none;
+  height: 300px;
 }
 
 .simplepicker-time-section input {
@@ -172,7 +173,7 @@
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: block;
-  margin: auto;
+  margin: 50% auto;
 }
 
 .simplepicker-time-section input:focus {
