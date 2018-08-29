@@ -48,7 +48,7 @@
   margin: 4px 6px;
   width: 25px;
   height: 25px;
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 .simplepicker-time, .simplepicker-selected-date {
@@ -59,7 +59,11 @@
   margin-top: 5px;
 }
 
-.simplepicker-icon:hover, .simplepicker-icon:active, .simplepicker-icon.active {
+.simplepicker-icon:hover {
+  opacity: 0.8;
+}
+
+.simplepicker-icon:active, .simplepicker-icon.active {
   opacity: 1;
 }
 
