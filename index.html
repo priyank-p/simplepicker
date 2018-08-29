@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="simplepicker.css">
+  <title>simplepicker</title>
+</head>
+<body>
+  <div class="simpilepicker-date-picker">
+    <div class="simplepicker-day-header"></div>
+    <div class="simplepicker-date-section">
+      <div class="simplepicker-month-and-year"></div>
+      <div class="simplepicker-date"></div>
+      <div class="simplepicker-select-pane">
+        <button class="simplepicker-icon simplepicker-icon-calender active" title="Select date from calender!"></button>
+        <div class="simplepicker-time">01:02:2018</div>
+        <button class="simplepicker-icon simplepicker-icon-time" title="Select time"></button>
+      </div>
+    </div>
+
+    <div class="simplepicker-picker-section">
+      <div class="simplepicker-calender-section">
+        <div class="simplepicker-month-switcher simplepicker-select-pane">
+          <button class="simplepicker-icon simplepicker-icon-previous"></button>
+          <div class="simplepicker-selected-date"></div>
+          <button class="simplepicker-icon simplepicker-icon-next"></button>
+        </div>
+
+        <div class="simplepicker-calender">
+          <table>
+            <thead>
+              <tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>
+            </thead>
+            <tbody>
+              <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="simplepicker-time-section"></div>
+    </div>
+    
+    <div class="simplepicker-bottom-part">
+      <button class="simplepicker-cancel-btn simplepicker-btn" title="Cancel">Cancel</button>
+      <button class="simplepicker-ok-btn simplepicker-btn" title="OK">OK</button>
+    </div>
+  </div>
+
+  <script>
+    // node to brower polyfill
+    function require(file) {
+      let name = file.split('/');
+      name = name[name.length - 1].replace('.js', '');
+      return window[name].exports || window[name];
+    }
+
+    window.require = require;
+  </script>
+  <script src="lib/date.js"></script>
+  <script src="lib/index.js"></script>
+</body>
+</html>
