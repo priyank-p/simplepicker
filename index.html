@@ -8,7 +8,7 @@
   <title>simplepicker</title>
 </head>
 <body>
-  <div class="simpilepicker-date-picker">
+  <!-- <div class="simpilepicker-date-picker">
     <div class="simplepicker-day-header"></div>
     <div class="simplepicker-date-section">
       <div class="simplepicker-month-and-year"></div>
@@ -54,19 +54,23 @@
       <button class="simplepicker-cancel-btn simplepicker-btn" title="Cancel">Cancel</button>
       <button class="simplepicker-ok-btn simplepicker-btn" title="OK">OK</button>
     </div>
-  </div>
+  </div> -->
 
+  <div></div>
+  
   <script>
     // node to brower polyfill
     function require(file) {
       let name = file.split('/');
       name = name[name.length - 1].replace('.js', '');
-      return window[name].exports || window[name];
+      return window[name];
     }
 
+    var module = undefined;
     window.require = require;
   </script>
   <script src="lib/date.js"></script>
+  <script src="lib/template.js"></script>
   <script src="lib/index.js"></script>
 </body>
 </html>
