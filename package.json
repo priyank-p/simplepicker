@@ -2,7 +2,7 @@
   "name": "simplepicker",
   "version": "1.0.0",
   "description": "Simple date picker written in vanilla js.",
-  "main": "./index.js",
+  "main": "./dist/simplepicker.js",
   "scripts": {
     "test": ""
   },
