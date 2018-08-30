@@ -2,10 +2,14 @@
   "name": "simplepicker",
   "version": "1.0.0",
   "description": "Simple date picker written in vanilla js.",
-  "main": "index.js",
+  "main": "./index.js",
   "scripts": {
     "test": ""
   },
+  "files": [
+    "lib/",
+    "dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/priyankp10/simplepicker.git"
