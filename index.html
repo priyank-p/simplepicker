@@ -10,20 +10,8 @@
 <body>
   <button class="simplepicker-btn">Show Picker</button>
   <div></div>
-  <script>
-    // node to brower polyfill
-    function require(file) {
-      let name = file.split('/');
-      name = name[name.length - 1].replace('.js', '');
-      return window[name];
-    }
 
-    var module = undefined;
-    window.require = require;
-  </script>
-  <script src="lib/date.js"></script>
-  <script src="lib/template.js"></script>
-  <script src="lib/index.js"></script>
+  <script src="dist/simplepicker.min.js"></script>
   <script>
     let simplepicker = new SimplePicker('div');
 
