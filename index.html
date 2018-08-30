@@ -8,7 +8,8 @@
   <title>simplepicker</title>
 </head>
 <body>
-  <div></div>  
+  <button class="simplepicker-btn">Show Picker</button>
+  <div></div>
   <script>
     // node to brower polyfill
     function require(file) {
@@ -25,7 +26,11 @@
   <script src="lib/index.js"></script>
   <script>
     let simplepicker = new SimplePicker('div');
-    simplepicker.show();
+
+    const $button = $('button');
+    $button.addEventListener('click', (e) => {
+      simplepicker.show();
+    });
   </script>
 </body>
 </html>

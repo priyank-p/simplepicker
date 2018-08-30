@@ -7,11 +7,11 @@
   background-color: #4c4c4c7d;
   width: 100vw;
   height: 100vh;
-  opacity: 0;
+  display: none;
 }
 
 .simplepicker-wrapper.active {
-  opacity: 1;
+  display: block;
 }
 
 .simpilepicker-date-picker {
