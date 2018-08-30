@@ -1,7 +1,22 @@
+.simplepicker-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  cursor: pointer;
+  background-color: #4c4c4c7d;
+  width: 100vw;
+}
+
 .simpilepicker-date-picker {
   width: 300px;
+  cursor: initial;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
+  background-color: #fff;
+  margin: 2% auto;
+  box-shadow: 1px 2px 4px 0.5px rgba(0, 0, 0, 0.22),
+              1px 2px 4px 0.5px rgba(0, 0, 0, 0.10);
 }
 
 .simplepicker-day-header {
@@ -88,8 +103,8 @@
 }
 
 .simplepicker-bottom-part {
-  padding: 20px 5px;
-  float: right;
+  padding: 5px 0 12px 0;
+  padding-left: 40%;
 }
 
 .simplepicker-btn {
@@ -120,6 +135,7 @@
   text-align: center;
   vertical-align: middle;
   padding: 12px;
+  z-index: 1;
 }
 
 .simplepicker-calender tbody td::after {
@@ -148,7 +164,7 @@
 .simplepicker-calender tbody td:active::after,
 .simplepicker-calender tbody .active::after {
   visibility: visible;
-  background-color: teal;
+  background-color:teal;
   z-index: -1;
 }
 
