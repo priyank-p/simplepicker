@@ -4,9 +4,8 @@
   "description": "Simple date picker written in vanilla js.",
   "main": "./dist/simplepicker.js",
   "scripts": {
-    "test": "",
-    "prepublish": "npm run build",
-    "build": "webpack-cli --config webpack-config/min.js && webpack-cli --config webpack-config/node.js"
+    "prepublish": "webpack-cli -p",
+    "build": "webpack-cli -p"
   },
   "files": [
     "dist/"
