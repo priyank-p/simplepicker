@@ -215,3 +215,7 @@
   color: white;
   background-color: #016565;
 }
+
+.simplepicker-fade {
+  color: rgba(225, 225, 225, 0.95);
+}
