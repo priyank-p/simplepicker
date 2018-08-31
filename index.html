@@ -38,9 +38,8 @@
     });
 
     // $eventLog.innerHTML += '\n\n';
-    simplepicker.on('submit', (date) => {
-      console.log(date);
-      $eventLog.innerHTML += date + '\n';
+    simplepicker.on('submit', (date, readableDate) => {
+      $eventLog.innerHTML += readableDate + '\n';
     });
 
     simplepicker.on('close', (date) => {
