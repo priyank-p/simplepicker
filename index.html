@@ -6,10 +6,25 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="dist/simplepicker.css">
   <title>simplepicker</title>
+
+  <style>
+    .event-log {
+      font-family: consolas, Monaco, monospace;
+      margin: 10px 5px;
+      line-height: 2;
+      border: 1px solid #4c4c4c;
+      height: auto;
+      width: 90%;
+      padding: 2px 6px;
+      color: #4c4c4c;
+      white-space: pre;
+    }
+  </style>
 </head>
 <body>
   <button class="simplepicker-btn">Show Picker</button>
   <div></div>
+  <div class="event-log">Event logs:<br></div>
 
   <script src="dist/simplepicker.min.js"></script>
   <script>
@@ -17,8 +32,19 @@
     simplepicker.open();
 
     const $button = document.querySelector('button');
+    const $eventLog = document.querySelector('.event-log');
     $button.addEventListener('click', (e) => {
       simplepicker.open();
+    });
+
+    // $eventLog.innerHTML += '\n\n';
+    simplepicker.on('submit', (date) => {
+      console.log(date);
+      $eventLog.innerHTML += date + '\n';
+    });
+
+    simplepicker.on('close', (date) => {
+      $eventLog.innerHTML += 'Picker Closed'  + '\n';
     });
   </script>
 </body>
