@@ -5,8 +5,8 @@
   "main": "./lib/index.js",
   "scripts": {
     "start": "webpack-dev-server --hot",
-    "prepare": "webpack-cli -p",
-    "build": "webpack-cli -p"
+    "prepare": "webpack-cli -p --env production",
+    "build": "webpack-cli -p --env production"
   },
   "files": [
     "dist/",

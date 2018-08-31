@@ -3,51 +3,59 @@ const webpack = require('webpack');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 const ROOT_DIR = __dirname;
-const config = {
-  entry: {
-    'simplepicker': './lib/simplepicker.css',
-    'simplepicker.min': './lib/index.js'
-  },
-  output: {
-    filename: '[name].js',
-    path: path.resolve(ROOT_DIR, 'dist'),
-  },
-  context: ROOT_DIR,
-  target: 'web',
-  mode: 'production',
-  devtool: 'source-map',
-  plugins: [
-    new webpack.HashedModuleIdsPlugin(),
-    new MiniCSSExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css'
-    })
-  ]
-};
-
-config.module = {};
-config.module.rules = [
-  {
-    test: /\.js$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: { presets: ['@babel/env'] }
-    }
-  },
-  {
-    test: /\.css$/,
-    use: [
-      MiniCSSExtractPlugin.loader,
-      {
-        loader: 'css-loader',
-        options: {
-          sourceMap: true,
-          minimize: true
-        }
-      },
+module.exports = function (env) {
+  const production = env === 'production';
+  const config = {
+    entry: {
+      'simplepicker': './lib/simplepicker.css',
+      'simplepicker.min': './lib/index.js'
+    },
+    output: {
+      filename: '[name].js',
+      path: path.resolve(ROOT_DIR, 'dist'),
+    },
+    context: ROOT_DIR,
+    target: 'web',
+    mode: production ? 'production' : 'development',
+    devtool: 'source-map',
+    plugins: [
+      new webpack.HashedModuleIdsPlugin(),
+      new MiniCSSExtractPlugin({
+        filename: '[name].css',
+        chunkFilename: '[id].css'
+      })
     ]
-  }
-];
+  };
+  
+  config.module = {};
+  config.module.rules = [
+    {
+      test: /\.css$/,
+      use: [
+        MiniCSSExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+          options: {
+            sourceMap: true,
+            minimize: production
+          }
+        },
+      ]
+    }
+  ];
 
-module.exports = config;
+  if (production) {
+    config.module.rules.push({
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: { presets: ['@babel/env'] }
+      }
+    });
+  } else {
+    config.output.publicPath = '/dist/';
+  }
+
+  return config;
+};
