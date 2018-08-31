@@ -8,6 +8,7 @@
     "prepare": "webpack-cli -p --env production",
     "build": "webpack-cli -p --env production"
   },
+  "types": "./simplepicker.d.ts", 
   "files": [
     "dist/",
     "lib/"
