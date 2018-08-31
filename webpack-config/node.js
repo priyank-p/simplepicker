@@ -1,5 +1,6 @@
-const config = require('./base-config');
+const basConfig = require('./base-config');
 
+const config = Object.assign(basConfig, {});
 config.entry = {
   'simplepicker': './lib/index.js'
 };
