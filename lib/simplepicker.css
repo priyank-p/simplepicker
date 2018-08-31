@@ -110,17 +110,7 @@
 
 .simplepicker-bottom-part {
   padding: 5px 0 12px 0;
-  padding-left: 40%;
-}
-
-.simplepicker-btn {
-  border: none;
-  background: transparent;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 16px;
-  padding: 7px 14px;
-  border: 1px solid #ddd;
-  margin: 0 5px;
+  padding-left: 48%;
 }
 
 .simplepicker-calender table {
@@ -206,4 +196,22 @@
 .simplepicker-picker-section {
   width: 100%;
   height: auto;
+}
+
+.simplepicker-btn {
+  border: none;
+  background: transparent;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  padding: 7px 14px;
+  border: 1px solid #ddd;
+  margin: 0 5px;
+  border-color: #4c4c4c;
+  color: #4c4c4c;
+  font-size: 13px;
+}
+
+.simplepicker-btn:hover, .simplepicker-btn:active {
+  color: white;
+  background-color: #4c4c4c;
 }
