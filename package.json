@@ -6,7 +6,7 @@
   "scripts": {
     "test": "",
     "prepublish": "npm run build",
-    "build": "webpack-cli --config webpack-config/min.js && webpack-cli --config webpack-config/common.js"
+    "build": "webpack-cli --config webpack-config/min.js && webpack-cli --config webpack-config/node.js"
   },
   "files": [
     "dist/"
