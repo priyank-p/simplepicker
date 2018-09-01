@@ -13,7 +13,7 @@ declare class SimplePicker {
   /**
    * Opens the simplepicker.
    */
-  show();
+  open();
 
   /**
    * closes the simplepicker.
