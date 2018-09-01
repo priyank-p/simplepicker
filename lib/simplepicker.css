@@ -3,7 +3,6 @@
   top: 0;
   left: 0;
   overflow: auto;
-  cursor: pointer;
   background-color: #4c4c4c7d;
   width: 100vw;
   height: 100vh;
@@ -218,4 +217,9 @@
 
 .simplepicker-fade {
   color: rgba(225, 225, 225, 0.95);
+}
+
+.simplepicker-wrapper, .simplepicker-icon,
+.simplepicker-btn {
+  cursor: pointer;
 }
