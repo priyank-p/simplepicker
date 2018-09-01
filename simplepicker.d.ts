@@ -8,7 +8,7 @@ declare class SimplePicker {
   /**
    * Inserts simplepicker into given element or selector.
    */
-  constructor(el: string | HTMLElement);
+  constructor(el?: string | HTMLElement);
 
   /**
    * Opens the simplepicker.
