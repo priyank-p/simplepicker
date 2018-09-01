@@ -58,14 +58,15 @@ module.exports = function (env) {
       }
     });
 
-    let browserConfig = Object.assign(config, {});
-    let nodeConfig = Object.assign(config, {});
+    // build a commonjs format file for comsption with
+    // build tools like webpack, and rollup.
+    let nodeConfig = { output: {} };
     nodeConfig.output.libraryTarget = 'commonjs2';
     nodeConfig.entry = {
       'simplepicker.node': './lib/index.js'
     };
 
-    config = [ browserConfig, nodeConfig ]
+    config = [ config, { ...config, ...nodeConfig } ]
   } else {
     config.output.publicPath = '/dist/';
   }
