@@ -5,7 +5,7 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const ROOT_DIR = __dirname;
 module.exports = function (env) {
   const production = env === 'production';
-  const config = {
+  let config = {
     entry: {
       simplepicker: [ 
         './lib/simplepicker.css',
@@ -57,6 +57,15 @@ module.exports = function (env) {
         options: { presets: ['@babel/env'] }
       }
     });
+
+    let browserConfig = Object.assign(config, {});
+    let nodeConfig = Object.assign(config, {});
+    nodeConfig.output.libraryTarget = 'commonjs2';
+    nodeConfig.entry = {
+      'simplepicker.node': './lib/index.js'
+    };
+
+    config = [ browserConfig, nodeConfig ]
   } else {
     config.output.publicPath = '/dist/';
   }
