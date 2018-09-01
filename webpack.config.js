@@ -7,12 +7,16 @@ module.exports = function (env) {
   const production = env === 'production';
   const config = {
     entry: {
-      'simplepicker': './lib/simplepicker.css',
-      'simplepicker.min': './lib/index.js'
+      simplepicker: [ 
+        './lib/simplepicker.css',
+        './lib/index.js'
+      ]
     },
     output: {
       filename: '[name].js',
       path: path.resolve(ROOT_DIR, 'dist'),
+      library: 'SimplePicker',
+      libraryTarget: 'var'
     },
     context: ROOT_DIR,
     target: 'web',
