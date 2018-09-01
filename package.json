@@ -2,7 +2,7 @@
   "name": "simplepicker",
   "version": "1.1.0",
   "description": "Simple date picker written in vanilla js.",
-  "main": "./lib/index.js",
+  "main": "./dist/simplepicker.node.js",
   "scripts": {
     "start": "webpack-dev-server --hot",
     "prepare": "webpack-cli -p --env production",
@@ -11,7 +11,6 @@
   "types": "./simplepicker.d.ts", 
   "files": [
     "dist/",
-    "lib/",
     "simplepicker.d.ts"
   ],
   "repository": {
