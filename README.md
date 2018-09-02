@@ -27,9 +27,12 @@ the npm package.
 This library is exported as a constructor, so you will need to create
 and instance of the simplepicker.
 
-#### `new SimplePicker([el])`:
+#### `new SimplePicker([el, opts])`:
   * `el` (optional, `string`, `Element`) - this parameter is optional
   but if no selector or element is passed it defaults to `body`.
+
+  * `opts` (optional, `object`) - possible options:
+    - `zIndex` (`number`): sets the `z-index` for the simplepicker.
 
 Creates new simplepicker instance, and inserts it into the dom. Throws
 error only if the selector passed is not valid.

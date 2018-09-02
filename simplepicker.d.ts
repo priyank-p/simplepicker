@@ -4,11 +4,16 @@
 
 
 type SimplePickerEvent = 'submit' | 'close';
+
+interface SimplePickerOpts {
+  zIndex: number;
+}
+
 declare class SimplePicker {
   /**
    * Inserts simplepicker into given element or selector.
    */
-  constructor(el?: string | HTMLElement);
+  constructor(el?: string | HTMLElement, opts?: SimplePickerOpts);
 
   /**
    * Opens the simplepicker.
