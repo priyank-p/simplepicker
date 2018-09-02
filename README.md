@@ -20,3 +20,20 @@ If you include the js file in dist folder, `SimplePicker` is defined using
 
 For typescript we also provide a typescript declaration file with
 the npm package.
+
+
+#### API
+
+This library is exported as a constructor, so you will need to create
+and instance of the simplepicker.
+
+#### new SimplePicker([el]):
+  * `el` (optional, `string`, `Element`) - this parameter is optional
+  but if no selector or element is passed it defaults to `body`.
+
+Creates new simplepicker instance, and inserts it into the dom. Throws
+error only if the selector passed is not valid.
+
+```javascript
+const simplepicker = new SimplePicker();
+```
