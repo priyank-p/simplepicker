@@ -13,7 +13,7 @@ declare class SimplePicker {
   /**
    * Inserts simplepicker into given element or selector.
    */
-  constructor(el?: string | HTMLElement, opts?: SimplePickerOpts);
+  constructor(el?: string | HTMLElement | SimplePickerOpts, opts?: SimplePickerOpts);
 
   /**
    * Opens the simplepicker.

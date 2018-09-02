@@ -34,6 +34,7 @@ and instance of the simplepicker.
   * `opts` (optional, `object`) - possible options:
     - `zIndex` (`number`): sets the `z-index` for the simplepicker.
 
+The first argument passed could be `opts`.
 Creates new simplepicker instance, and inserts it into the dom. Throws
 error only if the selector passed is not valid.
 
