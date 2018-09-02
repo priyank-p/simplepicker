@@ -23,12 +23,14 @@
 </head>
 <body>
   <button class="simplepicker-btn">Show Picker</button>
-  <div></div>
   <div class="event-log">Event logs:<br></div>
 
   <script src="dist/simplepicker.js"></script>
   <script>
-    let simplepicker = new SimplePicker('div');
+    let simplepicker = new SimplePicker({
+      zIndex: 10
+    });
+
     simplepicker.open();
 
     const $button = document.querySelector('button');
