@@ -45,3 +45,8 @@ is hidden automatically when the `Cancel` button or the overlay is clicked.
 
 If it closed due to an user action the `close` event is triggred whereas
 if the user selected an date the `submit` event it triggred.
+
+#### `simplepicker.close()`
+
+This method closes the picker without the user's action.
+Make sure you are not runing user experience unnessacary.
