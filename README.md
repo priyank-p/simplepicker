@@ -5,7 +5,7 @@ This project is mostly based on [material-datetime-picker](https://github.com/ri
 without it relying on external dependencies like `moment`,
 `rome`, and `materialize` and being simple.
 
-#### Usage
+## Usage
 
 To use simplepicker in your project you will need to include
 both css and js into your project. CSS file is included in
@@ -22,7 +22,7 @@ For typescript we also provide a typescript declaration file with
 the npm package.
 
 
-#### API
+## API
 
 This library is exported as a constructor, so you will need to create
 and instance of the simplepicker.
