@@ -50,3 +50,22 @@ if the user selected an date the `submit` event it triggred.
 
 This method closes the picker without the user's action.
 Make sure you are not runing user experience unnessacary.
+
+#### `simplepicker.on(event, handler)`:
+  - `event` (required, `string`): The name of the event, currently
+    `submit`, and `close` are supported.
+  - `handler` (required, `function`): This handler is called then
+    the event is triggred.
+
+This function add listeners to simplepicker, which are called on sepecific events.
+There could be multiple event listeners to a sepecific event.
+
+Events:
+  - `submit`: `handler(date, readableDate)` - Called
+    when user selects the date. It is called with two arguments:
+    `date` is first arguments that is a javascript date object, and
+    the second parameter is `readableDate` a string with date in format
+    `1st October 2018 12:00 AM`.
+  - `close`: `handler()` - It is called when due to user's action the
+    picker was close. It happens when user clicks the cancel button
+    or the picker overlay. Its handlers are called with no arguments. 
