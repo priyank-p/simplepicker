@@ -5,10 +5,10 @@
   "main": "./dist/simplepicker.node.js",
   "scripts": {
     "start": "webpack-dev-server --hot",
-    "prepare": "webpack-cli -p --env production",
+    "prepack": "webpack-cli -p --env production",
     "build": "webpack-cli -p --env production"
   },
-  "types": "./simplepicker.d.ts", 
+  "types": "./simplepicker.d.ts",
   "files": [
     "dist/",
     "simplepicker.d.ts"
