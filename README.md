@@ -33,6 +33,7 @@ and instance of the simplepicker.
 
   * `opts` (optional, `object`) - possible options:
     - `zIndex` (`number`): sets the `z-index` for the simplepicker.
+    - `disableTimeSection` (`boolean`): If true disables the time picker section.
 
 The first argument passed could be `opts`.
 
@@ -75,3 +76,11 @@ Events:
   - `close`: `handler()` - It is called when due to user's action the
     picker was close. It happens when user clicks the cancel button
     or the picker overlay. Its handlers are called with no arguments.
+
+#### `simplepicker.disableTimeSection()`
+
+This method disables the time picker section.
+
+#### `simplepicker.enableTimeSection()`
+
+This method re-enables the time picker section if it was previously disabled.
