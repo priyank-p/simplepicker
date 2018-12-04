@@ -37,11 +37,25 @@ and instance of the simplepicker.
 
 The first argument passed could be `opts`.
 
-This methjod creates new simplepicker instance, and inserts it into the dom.
+This method creates new simplepicker instance, and inserts it into the dom.
 It throws error only if the selector passed is not valid.
-
 ```javascript
 const simplepicker = new SimplePicker();
+```
+
+**Note:** You can have two `SimplePicker` instances but they both must have
+two diffrent element passed in to bind to otherwise they both will trigger the same
+event; this is beacuse they both will respond to event triggred by the same element.
+
+```javascript
+// below both picker1 and picker2 are the same.
+const picker1 = new SimplePicker();
+const picker2 = new SimplePicker();
+
+// but to have to diffrent picker on same page
+// you will need to pass a diffrent selector as shown below.
+const picker1 = new SimplePicker();
+const picker2 = new SimplePicker('.some-element');
 ```
 
 #### `simplepicker.open()`
