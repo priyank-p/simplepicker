@@ -3,7 +3,7 @@
 Simple datetime picker in vanilla js.
 This project is mostly based on [material-datetime-picker](https://github.com/ripjar/material-datetime-picker), but
 without it relying on external dependencies like `moment`,
-`rome`, and `materialize` and to be simple.
+`rome`, and `materialize`. It also is simple to use.
 
 ## Usage
 
