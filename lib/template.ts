@@ -1,4 +1,4 @@
-function repeat(str, times) {
+function repeat(str: string, times: number): string {
   let repeated = '';
   for (let i = 1; i <= times; i++) {
     repeated += str;
@@ -7,7 +7,7 @@ function repeat(str, times) {
   return repeated;
 }
 
-const htmlTemplate = `
+export const htmlTemplate = `
 <div class="simplepicker-wrapper">
   <div class="simpilepicker-date-picker">
     <div class="simplepicker-day-header"></div>
@@ -49,5 +49,3 @@ const htmlTemplate = `
   </div>
 </div>
 `;
-
-module.exports = htmlTemplate;
