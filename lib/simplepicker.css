@@ -108,7 +108,8 @@
 }
 
 .simplepicker-bottom-part {
-  padding: 5px 0 12px 0;
+  padding-top: 6px;
+  padding-bottom: 12px;
   padding-left: 48%;
 }
 
