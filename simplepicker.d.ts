@@ -7,6 +7,7 @@ type SimplePickerEvent = 'submit' | 'close';
 
 interface SimplePickerOpts {
   zIndex: number;
+  compactMode: boolean;
 }
 
 declare class SimplePicker {
@@ -25,6 +26,11 @@ declare class SimplePicker {
    */
   close();
 
+  /**
+   * Make the simplepicker compact; the big date
+   * area of selected date i.e 25th is not displayed
+   */
+  compactMode();
 
   /**
    * Calls the method passed in when a event occurs.
