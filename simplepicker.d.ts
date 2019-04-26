@@ -8,6 +8,7 @@ type SimplePickerEvent = 'submit' | 'close';
 interface SimplePickerOpts {
   zIndex: number;
   compactMode: boolean;
+  disableTimeSection: boolean;
 }
 
 declare class SimplePicker {

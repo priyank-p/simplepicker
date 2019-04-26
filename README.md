@@ -33,7 +33,7 @@ and instance of the simplepicker.
 
   * `opts` (optional, `object`) - possible options:
     - `zIndex` (`number`): sets the `z-index` for the simplepicker.
-    - `disableTimeSection` (`boolean`): If `true` disables the time picker section.
+    - `` (`boolean`): If `true` disables the time picker section.
     - `compactMode` (`boolean`): If `true` the simplepicker will be more compact; the large
                                  display of the selected date, i.e. 25th will not be displayed.
 
