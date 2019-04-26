@@ -7,7 +7,7 @@ module.exports = function (env) {
   const production = env === 'production';
   let config = {
     entry: {
-      simplepicker: [ 
+      simplepicker: [
         './lib/simplepicker.css',
         './lib/index.js'
       ]
@@ -17,6 +17,9 @@ module.exports = function (env) {
       path: path.resolve(ROOT_DIR, 'dist'),
       library: 'SimplePicker',
       libraryTarget: 'var'
+    },
+    resolve: {
+      extensions: [ '.css', '.ts', '.js' ]
     },
     context: ROOT_DIR,
     target: 'web',
@@ -30,7 +33,7 @@ module.exports = function (env) {
       })
     ]
   };
-  
+
   config.module = {};
   config.module.rules = [
     {
@@ -45,6 +48,10 @@ module.exports = function (env) {
           }
         },
       ]
+    },{
+      test: /\.ts$/,
+      use: 'ts-loader',
+      exclude: /node_modules/
     }
   ];
 
@@ -66,7 +73,7 @@ module.exports = function (env) {
       'simplepicker.node': './lib/index.js'
     };
 
-    config = [ config, { ...config, ...nodeConfig } ]
+    config = [ config, { ...config, ...nodeConfig } ];
   } else {
     config.output.publicPath = '/dist/';
   }
