@@ -1,8 +1,13 @@
-const monthTracker = {
+export interface MonthTracker {
+  years: Object;
+  current?: Date;
+};
+
+export const monthTracker: MonthTracker = {
   years: {}
 };
 
-const months = [
+export const months = [
   'January',
   'Febuary',
   'March',
@@ -17,7 +22,7 @@ const months = [
   'December'
 ];
 
-const days = [
+export const days = [
   'Sunday',
   'Monday',
   'Tuesday',
@@ -38,13 +43,14 @@ function fill(arr, upto) {
 
 // builds the calender for one month given a date
 // which is end, start or in middle of the month
-function scrapeMonth(date) {
+export function scrapeMonth(date: Date) {
   const originalDate = new Date(date.getTime());
   const year = date.getFullYear();
   const month = date.getMonth();
 
   const data = {
-    date: originalDate
+    date: originalDate,
+    month: undefined
   };
 
   monthTracker.current = new Date(date.getTime());
@@ -94,14 +100,22 @@ function scrapeMonth(date) {
   return data;
 }
 
-function scrapePreviousMonth() {
+export function scrapePreviousMonth() {
   const date = monthTracker.current;
+  if (!date) {
+    throw Error('scrapePrevoisMonth called without setting monthTracker.current!');
+  }
+
   date.setMonth(date.getMonth() - 1);
   return scrapeMonth(date);
 }
 
-function scrapeNextMonth() {
+export function scrapeNextMonth() {
   const date = monthTracker.current;
+  if (!date) {
+    throw Error('scrapePrevoisMonth called without setting monthTracker.current!');
+  }
+
   date.setMonth(date.getMonth() + 1);
   return scrapeMonth(date);
 }
@@ -112,24 +126,24 @@ const dateEndings = {
   rd: [3, 23]
 };
 
-function getDisplayDate(_date) {
+export function getDisplayDate(_date) {
   const date = _date.getDate();
-  if (dateEndings.st.includes(date)) {
+  if (dateEndings.st.indexOf(date) !== -1) {
     return date + 'st';
   }
 
-  if (dateEndings.nd.includes(date)) {
+  if (dateEndings.nd.indexOf(date) !== -1) {
     return date + 'nd';
   }
 
-  if (dateEndings.rd.includes(date)) {
+  if (dateEndings.rd.indexOf(date) !== -1) {
     return date + 'rd';
   }
 
   return date + 'th';
 }
 
-function formatTimeFromInputElement(input) {
+export function formatTimeFromInputElement(input) {
   let timeString = '';
   let [ hour, minute ] = input.split(':');
   hour = +hour;
@@ -148,14 +162,3 @@ function formatTimeFromInputElement(input) {
   timeString += isPM ? 'PM' : 'AM';
   return timeString;
 }
-
-module.exports = {
-  monthTracker,
-  months,
-  days,
-  scrapeMonth,
-  scrapeNextMonth,
-  scrapePreviousMonth,
-  formatTimeFromInputElement,
-  getDisplayDate
-};
