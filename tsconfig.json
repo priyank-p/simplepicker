@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "module": "es6",
+    "module": "commonjs",
+    "lib": ["es6", "dom", "es2017"],
     "target": "es5",
     "strictNullChecks": true,
     "allowJs": true

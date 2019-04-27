@@ -9,7 +9,7 @@ module.exports = function (env) {
     entry: {
       simplepicker: [
         './lib/simplepicker.css',
-        './lib/index.js'
+        './lib/index.ts'
       ]
     },
     output: {
