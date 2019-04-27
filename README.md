@@ -1,26 +1,25 @@
 # simplepicker
 
-Simple datetime picker in vanilla js.
+Simple datetime picker in vanilla javascript.
 This project is mostly based on [material-datetime-picker](https://github.com/ripjar/material-datetime-picker), but
 without it relying on external dependencies like `moment`,
-`rome`, and `materialize`. It also is simple to use.
+`rome`, and `materialize`.
 
 ## Usage
 
 To use simplepicker in your project you will need to include
-both css and js files in `dist/`. CSS file is included in
-`dist/simplepicker.css` and js file `dist/simplepicker.js`.
+CSS and JavaScript files in `dist/` directory. CSS file `dist/simplepicker.css`
+is used to style the simplepicker and the JavaScript file required is in `dist/simplepicker.js`.
 
 If you use build tools, therefore `require` or ES6 `import`, you can also
-require or import simplepicker; if you use typescript you'll need to do
+`require` or `import` simplepicker; if you use typescript you'll need to do
 `import SimplePicker = require('simplepicker');`.
 
 If you include the js file in dist folder, `SimplePicker` is defined using
-`var` declaration and is as `SimplePicker`;
+`var` declaration and is avalible as `SimplePicker`.
 
 For typescript projects we provide the typescript declaration file
 with the npm package.
-
 
 ## API
 
