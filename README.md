@@ -5,6 +5,16 @@ This project is mostly based on [material-datetime-picker](https://github.com/ri
 without it relying on external dependencies like `moment`,
 `rome`, and `materialize`.
 
+## Installation
+
+Install from npm:
+```
+npm install simplepicker
+```
+
+We also started to [publish this package](https://github.com/priyank-p/simplepicker/packages/) (starting from v2.0.0) to GitHub's package registry.
+If you prefer the installing it from there you will need to [follow GitHub's instructions](https://help.github.com/en/articles/configuring-npm-for-use-with-github-package-registry#installing-a-package). 
+
 ## Usage
 
 To use simplepicker in your project you will need to include
