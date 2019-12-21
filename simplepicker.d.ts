@@ -1,8 +1,3 @@
-// Type definitions for [SimplePicker] [1.0.1]
-// Project: [SimplePicker]
-// Definitions by: [Priyank Patel] <https://github.com/priyankp10>
-
-
 type SimplePickerEvent = 'submit' | 'close';
 
 interface SimplePickerOpts {
