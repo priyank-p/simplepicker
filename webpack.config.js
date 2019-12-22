@@ -70,7 +70,7 @@ module.exports = function (env) {
     let nodeConfig = { output: {} };
     nodeConfig.output.libraryTarget = 'commonjs2';
     nodeConfig.entry = {
-      'simplepicker.node': './lib/index.js'
+      'simplepicker.node': './lib/index.ts'
     };
 
     config = [ config, { ...config, ...nodeConfig } ];
