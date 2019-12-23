@@ -32,10 +32,11 @@ export const days = [
   'Saturday'
 ];
 
-function fill(arr, upto) {
-  arr = [].concat(arr);
+function fill<T>(arr: T[], upto: number): T[] {
+  const temp: T[] = [];
+  arr = temp.concat(arr);
   for (let i = 0; i < upto; i++) {
-    arr[i] = null;
+    (arr[i] as any) = undefined; 
   }
 
   return arr;
@@ -143,9 +144,10 @@ export function getDisplayDate(_date) {
   return date + 'th';
 }
 
-export function formatTimeFromInputElement(input) {
+export function formatTimeFromInputElement(input: string) {
   let timeString = '';
-  let [ hour, minute ] = input.split(':');
+  type StringOrNumberTuple = [string | number, string | number];
+  let [ hour, minute ] = input.split(':') as StringOrNumberTuple;
   hour = +hour;
 
   const isPM = hour >= 12;
