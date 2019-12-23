@@ -1,12 +1,14 @@
 import * as dateUtil from './date-util';
 import { htmlTemplate } from './template';
 
-const today = new Date();
-interface SimplePickerOpts {
+declare type SimplePickerEvent = 'submit' | 'close';
+declare interface SimplePickerOpts {
   zIndex: number;
   compactMode: boolean;
   disableTimeSection: boolean;
 }
+
+const today = new Date();
 
 class SimplePicker {
   selectedDate: Date;
