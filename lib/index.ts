@@ -160,7 +160,7 @@ class SimplePicker {
     });
   }
 
-  updateDateComponents(date) {
+  updateDateComponents(date: Date) {
     const day = dateUtil.days[date.getDay()];
     const month = dateUtil.months[date.getMonth()];
     const year = date.getFullYear();
@@ -211,7 +211,7 @@ class SimplePicker {
     this.updateDateComponents(date);
   }
 
-  updateSelectedDate(el?) {
+  updateSelectedDate(el?: HTMLElement) {
     const { $monthAndYear, $time, $date } = this;
 
     let day;
@@ -244,7 +244,7 @@ class SimplePicker {
     this.readableDate = _date.replace(/^\d+/, date.getDate().toString());
   }
 
-  selectDateElement(el) {
+  selectDateElement(el: HTMLElement) {
     const alreadyActive = this.$('.simplepicker-calender tbody .active');
     el.classList.add('active');
     if (alreadyActive) {
@@ -255,7 +255,7 @@ class SimplePicker {
     this.updateDateComponents(this.selectedDate);
   }
 
-  findElementWithDate(date, returnLastIfNotFound = false) {
+  findElementWithDate(date, returnLastIfNotFound: boolean = false) {
     const { $tds } = this;
 
     let el, lastTd;
@@ -277,7 +277,7 @@ class SimplePicker {
     return el;
   }
 
-  handleIconButtonClick(el) {
+  handleIconButtonClick(el: HTMLElement) {
     const { $ } = this;
     const baseClass = 'simplepicker-icon-';
     const nextIcon = baseClass + 'next';
@@ -380,9 +380,9 @@ class SimplePicker {
     $simplepickerWrapper.addEventListener('click', close);
   }
 
-  callEvent(event, dispatcher) {
+  callEvent(event: SimplePickerEvent, dispatcher: (a: Function) => void) {
     const listeners = this._eventHandlers[event] || [];
-    listeners.forEach(function (func) {
+    listeners.forEach(function (func: Function) {
       dispatcher(func);
     });
   }
@@ -396,7 +396,7 @@ class SimplePicker {
     this.$simplepickerWrapper.classList.remove('active');
   }
 
-  on(event, handler) {
+  on(event: SimplePickerEvent, handler: Function) {
     const { _validOnListeners, _eventHandlers } = this;
     if (!_validOnListeners.includes(event)) {
       throw new Error('Not a valid event!');
