@@ -8,13 +8,18 @@ declare interface SimplePickerOpts {
   disableTimeSection?: boolean;
 }
 
+type HandlerFunction = (...args: any[]) => void;
+interface EventHandlers {
+  [key: string]: HandlerFunction[];
+}
+
 const today = new Date();
 
 class SimplePicker {
   selectedDate: Date;
   $simplePicker: HTMLElement;
   readableDate: string;
-  _eventHandlers: Object;
+  _eventHandlers: EventHandlers;
   _validOnListeners: string[];
 
   private opts: SimplePickerOpts;
@@ -62,7 +67,7 @@ class SimplePicker {
     this.init(opts);
     this.initListeners();
 
-    this._eventHandlers = [];
+    this._eventHandlers = {};
     this._validOnListeners = [
       'submit',
       'close',
@@ -380,9 +385,9 @@ class SimplePicker {
     $simplepickerWrapper.addEventListener('click', close);
   }
 
-  callEvent(event: SimplePickerEvent, dispatcher: (a: Function) => void) {
+  callEvent(event: SimplePickerEvent, dispatcher: (a: HandlerFunction) => void) {
     const listeners = this._eventHandlers[event] || [];
-    listeners.forEach(function (func: Function) {
+    listeners.forEach(function (func: HandlerFunction) {
       dispatcher(func);
     });
   }
@@ -396,7 +401,7 @@ class SimplePicker {
     this.$simplepickerWrapper.classList.remove('active');
   }
 
-  on(event: SimplePickerEvent, handler: Function) {
+  on(event: SimplePickerEvent, handler: HandlerFunction) {
     const { _validOnListeners, _eventHandlers } = this;
     if (!_validOnListeners.includes(event)) {
       throw new Error('Not a valid event!');
