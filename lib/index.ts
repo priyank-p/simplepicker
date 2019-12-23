@@ -3,9 +3,9 @@ import { htmlTemplate } from './template';
 
 declare type SimplePickerEvent = 'submit' | 'close';
 declare interface SimplePickerOpts {
-  zIndex: number;
-  compactMode: boolean;
-  disableTimeSection: boolean;
+  zIndex?: number;
+  compactMode?: boolean;
+  disableTimeSection?: boolean;
 }
 
 const today = new Date();
@@ -35,19 +35,24 @@ class SimplePicker {
   private $ok: HTMLElement;
   private $displayDateElements: HTMLElement[];
 
-  constructor(el, opts) {
-    if (typeof el === 'object') {
-      opts = el;
+  constructor(elOrOpts?: SimplePickerOpts | string | HTMLElement, opts?: SimplePickerOpts) {
+    let el: HTMLElement | string | undefined;
+    if (typeof elOrOpts === 'object') {
+      opts = elOrOpts as SimplePickerOpts;
       el = undefined;
     }
 
     el = el || 'body';
     if (typeof el === 'string') {
-      el = document.querySelector(el);
+      el = document.querySelector(el) as HTMLElement;
     }
 
     if (!el) {
       throw new Error('SimplePicker: Valid selector or element must be passed!');
+    }
+
+    if (!opts) {
+      opts = {};
     }
 
     this.selectedDate = new Date();
@@ -73,7 +78,7 @@ class SimplePicker {
     this.$$ = (sel) => el.querySelectorAll(sel);
   }
 
-  init(opts) {
+  init(opts: SimplePickerOpts) {
     const { $, $$ } = this;
 
     this.$simplepicker = $('.simpilepicker-date-picker');
@@ -104,7 +109,7 @@ class SimplePicker {
     opts = opts || {};
     this.opts = opts;
     if (opts.zIndex !== undefined) {
-      this.$simplepickerWrapper.style.zIndex = opts.zIndex;
+      this.$simplepickerWrapper.style.zIndex = opts.zIndex.toString();
     }
 
     if (opts.disableTimeSection) {
