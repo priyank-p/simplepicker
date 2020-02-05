@@ -1,8 +1,8 @@
 import * as dateUtil from './date-util';
 import { htmlTemplate } from './template';
 
-declare type SimplePickerEvent = 'submit' | 'close';
-declare interface SimplePickerOpts {
+type SimplePickerEvent = 'submit' | 'close';
+interface SimplePickerOpts {
   zIndex?: number;
   compactMode?: boolean;
   disableTimeSection?: boolean;
@@ -14,7 +14,6 @@ interface EventHandlers {
 }
 
 const today = new Date();
-
 class SimplePicker {
   selectedDate: Date;
   $simplePicker: HTMLElement;
