@@ -3,9 +3,10 @@ import { htmlTemplate } from './template';
 
 type SimplePickerEvent = 'submit' | 'close';
 interface SimplePickerOpts {
-  zIndex?: number;
-  compactMode?: boolean;
-  disableTimeSection?: boolean;
+	zIndex?: number;
+	compactMode?: boolean;
+	disableTimeSection?: boolean;
+	selectedDate?: Date;
 }
 
 type HandlerFunction = (...args: any[]) => void;
@@ -108,10 +109,11 @@ class SimplePicker {
     this.$time.classList.add('simplepicker-fade');
     this.render(dateUtil.scrapeMonth(today));
 
-    this.reset(); // select current date
-
     opts = opts || {};
     this.opts = opts;
+
+    this.reset(this.opts.selectedDate);
+
     if (opts.zIndex !== undefined) {
       this.$simplepickerWrapper.style.zIndex = opts.zIndex.toString();
     }
@@ -126,15 +128,20 @@ class SimplePicker {
   }
 
   // Reset by selecting current date.
-  reset() {
-    const today = new Date();
-    const todaysDate = today.getDate().toString();
-    const $todayEl = this.findElementWithDate(todaysDate);
-    if (!$todayEl.classList.contains('active')) {
-      this.selectDateElement($todayEl);
-      this.updateDateComponents(today);
-    }
-  }
+	reset(selectedDate?: Date) {
+		let dte;
+		if (selectedDate == undefined) {
+			dte = new Date();
+		} else {
+			dte = selectedDate;
+		}
+		const dtesDate = dte.getDate().toString();
+		const $dteEl = this.findElementWithDate(dtesDate);
+		if (!$dteEl.classList.contains('active')) {
+			this.selectDateElement($dteEl);
+			this.updateDateComponents(dte);
+		}
+	}
 
   compactMode() {
     const { $date } = this;

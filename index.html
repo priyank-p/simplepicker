@@ -19,10 +19,30 @@
       color: #4c4c4c;
       white-space: pre;
     }
+
+		.btn {
+			border: none;
+			background: transparent;
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+			font-size: 16px;
+			padding: 7px 14px;
+			border: 1px solid #ddd;
+			margin: 0 5px;
+			border-color: #016565;
+			color: #016565;
+			font-size: 13px;
+		}
+
+		.btn:hover, .btn:active {
+			color: white;
+			background-color: #016565;
+		}
+
   </style>
 </head>
 <body>
-  <button class="simplepicker-btn">Show Picker</button>
+  <button class="simplepicker-btn picker">Show Picker</button>
+  <button class="simplepicker-btn pickerwithdate">Show Picker With a different date</button>
   <div class="event-log">Event logs:<br></div>
 
   <script src="dist/simplepicker.js"></script>
@@ -33,12 +53,18 @@
 
     simplepicker.open();
 
-    const $button = document.querySelector('button');
-    const $eventLog = document.querySelector('.event-log');
+    const $button = document.querySelector('.picker');
     $button.addEventListener('click', (e) => {
       simplepicker.open();
     });
 
+    const $buttonWithDate = document.querySelector('.pickerwithdate');
+    $buttonWithDate.addEventListener('click', (e) => {
+			simplepicker.reset(new Date(2020, 1, 28, 10, 0, 0));
+      simplepicker.open();
+    });
+
+    const $eventLog = document.querySelector('.event-log');
     // $eventLog.innerHTML += '\n\n';
     simplepicker.on('submit', (date, readableDate) => {
       $eventLog.innerHTML += readableDate + '\n';

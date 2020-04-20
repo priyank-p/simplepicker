@@ -45,6 +45,8 @@ and instance of the simplepicker.
     - `` (`boolean`): If `true` disables the time picker section.
     - `compactMode` (`boolean`): If `true` the simplepicker will be more compact; the large
                                  display of the selected date, i.e. 25th will not be displayed.
+    - `selectedDate` (`Date`): initialize the simplepicker with this date, if not used then today
+                               will be used
 
 The first argument passed could be `opts`.
 
@@ -82,6 +84,15 @@ below to listen to these events.
 
 This method closes the picker without the user's action.
 Make sure you are not ruining user experience unnecessarily.
+
+#### `simplepicker.reset(date)`:
+
+The reset allows to change the date of the simplepicker example:
+```javascript
+const sp = new SimplePicker();
+sp.reset(new Date(2019, 12, 31, 7, 0, 0));
+sp.open();
+```
 
 #### `simplepicker.on(event, handler)`:
   - `event` (required, `string`): The name of the event, currently
