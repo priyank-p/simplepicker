@@ -108,10 +108,11 @@ class SimplePicker {
     this.$time.classList.add('simplepicker-fade');
     this.render(dateUtil.scrapeMonth(today));
 
-    this.reset(); // select current date
-
     opts = opts || {};
     this.opts = opts;
+
+    this.reset(today);
+
     if (opts.zIndex !== undefined) {
       this.$simplepickerWrapper.style.zIndex = opts.zIndex.toString();
     }
@@ -126,13 +127,15 @@ class SimplePicker {
   }
 
   // Reset by selecting current date.
-  reset() {
-    const today = new Date();
-    const todaysDate = today.getDate().toString();
-    const $todayEl = this.findElementWithDate(todaysDate);
-    if (!$todayEl.classList.contains('active')) {
-      this.selectDateElement($todayEl);
-      this.updateDateComponents(today);
+  reset(newDate?: Date) {
+    let date = newDate || new Date();
+    this.render(dateUtil.scrapeMonth(date));
+
+    const dateString = date.getDate().toString();
+    const $dateEl = this.findElementWithDate(dateString);
+    if (!$dateEl.classList.contains('active')) {
+      this.selectDateElement($dateEl);
+      this.updateDateComponents(date);
     }
   }
 

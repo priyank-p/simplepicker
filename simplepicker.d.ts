@@ -37,7 +37,7 @@ declare class SimplePicker {
    * Reset simplepicker to today's date.
    * Note: this de-selects anything the user selected!!!
    */
-  reset();
+  reset(newDate?: Date);
 
   readonly selectedDate: Date;
   readonly _validOnListeners: string[];

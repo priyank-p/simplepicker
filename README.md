@@ -13,7 +13,7 @@ npm install simplepicker
 ```
 
 We also started to [publish this package](https://github.com/priyank-p/simplepicker/packages/) (starting from v2.0.0) to GitHub's package registry.
-If you prefer the installing it from there you will need to [follow GitHub's instructions](https://help.github.com/en/articles/configuring-npm-for-use-with-github-package-registry#installing-a-package). 
+If you prefer the installing it from there you will need to [follow GitHub's instructions](https://help.github.com/en/articles/configuring-npm-for-use-with-github-package-registry#installing-a-package).
 
 ## Usage
 
@@ -45,6 +45,8 @@ and instance of the simplepicker.
     - `` (`boolean`): If `true` disables the time picker section.
     - `compactMode` (`boolean`): If `true` the simplepicker will be more compact; the large
                                  display of the selected date, i.e. 25th will not be displayed.
+    - `selectedDate` (`Date`): initialize the simplepicker with this date, if not used then today
+                               will be used
 
 The first argument passed could be `opts`.
 
@@ -82,6 +84,19 @@ below to listen to these events.
 
 This method closes the picker without the user's action.
 Make sure you are not ruining user experience unnecessarily.
+
+#### `simplepicker.reset(date)`:
+  * `date` (optional, `Date`) - The date to select after reset. Default is current date (as in `new Date()`).
+
+**Note**: This method will overrride what the user may have already selected. Therefore,
+use it with care considering user experience.
+
+The example below sets resets to a date before showing the picker.
+```javascript
+const sp = new SimplePicker();
+sp.reset(new Date(2019, 12, 31, 7, 0, 0));
+sp.open();
+```
 
 #### `simplepicker.on(event, handler)`:
   - `event` (required, `string`): The name of the event, currently
