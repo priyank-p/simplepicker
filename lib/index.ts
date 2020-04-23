@@ -39,24 +39,31 @@ class SimplePicker {
   private $ok: HTMLElement;
   private $displayDateElements: HTMLElement[];
 
-  constructor(elOrOpts?: SimplePickerOpts | string | HTMLElement, opts?: SimplePickerOpts) {
-    let el: HTMLElement | string | undefined;
-    if (typeof elOrOpts === 'object') {
-      opts = elOrOpts as SimplePickerOpts;
-      el = undefined;
+  constructor(elOrOpts?: SimplePickerOpts | string | HTMLElement, options?: SimplePickerOpts) {
+    let el: HTMLElement | null = null;
+    let opts: SimplePickerOpts = options || {};
+    if (elOrOpts === undefined) {
+      // If nothing was passed as first argument, then the
+      // element should be <body> tag that is the default.
+      // The opts should already by {} so no changes needed there.
+      el = document.body;
+    } else if (typeof elOrOpts === 'string') {
+      // If the first argument is string, then it is a selector.
+      // Query the elements. If the selector is invalid el would be null
+      // and we will throw and an error below.
+      el = document.querySelector(elOrOpts);
+    } else if (elOrOpts instanceof Element) {
+      // If the first argument is an element, set it to
+      // el.
+      el = elOrOpts;
+    } else if (typeof options === 'object') {
+      // Finally, an object is passed with options
+      // set it to opts.
+      options = elOrOpts;
     }
 
-    el = (elOrOpts as HTMLElement | string) || 'body';
-    if (typeof el === 'string') {
-      el = document.querySelector(el) as HTMLElement;
-    }
-
-    if (!el) {
+    if (el === null) {
       throw new Error('SimplePicker: Valid selector or element must be passed!');
-    }
-
-    if (!opts) {
-      opts = {};
     }
 
     this.selectedDate = new Date();
