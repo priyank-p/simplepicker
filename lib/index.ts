@@ -3,10 +3,10 @@ import { htmlTemplate } from './template';
 
 type SimplePickerEvent = 'submit' | 'close';
 interface SimplePickerOpts {
-	zIndex?: number;
-	compactMode?: boolean;
-	disableTimeSection?: boolean;
-	selectedDate?: Date;
+    zIndex?: number;
+    compactMode?: boolean;
+    disableTimeSection?: boolean;
+    selectedDate?: Date;
 }
 
 type HandlerFunction = (...args: any[]) => void;
@@ -42,9 +42,9 @@ class SimplePicker {
 
   constructor(elOrOpts?: SimplePickerOpts | string | HTMLElement, opts?: SimplePickerOpts) {
     let el: HTMLElement | string | undefined;
-		if (typeof elOrOpts === 'string') {
-			el = elOrOpts as string;
-		} else if (typeof elOrOpts === 'object') {
+        if (typeof elOrOpts === 'string') {
+            el = elOrOpts as string;
+        } else if (typeof elOrOpts === 'object') {
       opts = elOrOpts as SimplePickerOpts;
     }
 
@@ -129,20 +129,20 @@ class SimplePicker {
   }
 
   // Reset by selecting current date.
-	reset(selectedDate?: Date) {
-		let dte;
-		if (selectedDate == undefined) {
-			dte = new Date();
-		} else {
-			dte = selectedDate;
-		}
-		const dtesDate = dte.getDate().toString();
-		const $dteEl = this.findElementWithDate(dtesDate);
-		if (!$dteEl.classList.contains('active')) {
-			this.selectDateElement($dteEl);
-			this.updateDateComponents(dte);
-		}
-	}
+    reset(selectedDate?: Date) {
+        let dte;
+        if (selectedDate == undefined) {
+            dte = new Date();
+        } else {
+            dte = selectedDate;
+        }
+        const dtesDate = dte.getDate().toString();
+        const $dteEl = this.findElementWithDate(dtesDate);
+        if (!$dteEl.classList.contains('active')) {
+            this.selectDateElement($dteEl);
+            this.updateDateComponents(dte);
+        }
+    }
 
   compactMode() {
     const { $date } = this;
@@ -354,6 +354,7 @@ class SimplePicker {
       const tagName = target.tagName.toLowerCase();
 
       e.stopPropagation();
+      e.preventDefault();
       if (tagName === 'td') {
         _this.selectDateElement(target);
         return;
@@ -376,11 +377,12 @@ class SimplePicker {
       _this.updateSelectedDate();
     });
 
-    $ok.addEventListener('click', function () {
+    $ok.addEventListener('click', function (e) {
       _this.close();
       _this.callEvent('submit', function (func) {
         func(_this.selectedDate, _this.readableDate);
       });
+      e.preventDefault();
     });
 
     function close() {

@@ -43,8 +43,8 @@ export const htmlTemplate = `
         </div>
       </div>
       <div class="simplepicker-bottom-part">
-        <button class="simplepicker-cancel-btn simplepicker-btn" title="Cancel">Cancel</button>
-        <button class="simplepicker-ok-btn simplepicker-btn" title="OK">OK</button>
+        <button class="simplepicker-cancel-btn simplepicker-btn" type="button" title="Cancel">Cancel</button>
+        <button class="simplepicker-ok-btn simplepicker-btn" type="button" title="OK">OK</button>
       </div>
   </div>
 </div>

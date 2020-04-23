@@ -41,8 +41,10 @@
   </style>
 </head>
 <body>
+	<form action="test" method="POST">
 	<input type="text" id="test1" /><button class="btn picker1">Show Picker</button>
 	<input type="text" id="test2" /><button class="btn picker2">Show Picker</button>
+	</form>
 
   <script src="dist/simplepicker.js"></script>
   <script>
@@ -56,6 +58,7 @@
     const $button1 = document.querySelector('.picker1');
     $button1.addEventListener('click', (e) => {
       simplepicker1.open();
+			e.preventDefault();
     });
 		simplepicker1.on("submit", function(date, readableDate) {
 			var input = document.querySelector('#test1');
@@ -65,6 +68,7 @@
     const $button2 = document.querySelector('.picker2');
     $button2.addEventListener('click', (e) => {
       simplepicker2.open();
+			e.preventDefault();
     });
 		simplepicker2.on("submit", function(date, readableDate) {
 			var input = document.querySelector('#test2');
