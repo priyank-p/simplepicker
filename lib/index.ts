@@ -42,9 +42,10 @@ class SimplePicker {
 
   constructor(elOrOpts?: SimplePickerOpts | string | HTMLElement, opts?: SimplePickerOpts) {
     let el: HTMLElement | string | undefined;
-    if (typeof elOrOpts === 'object') {
+		if (typeof elOrOpts === 'string') {
+			el = elOrOpts as string;
+		} else if (typeof elOrOpts === 'object') {
       opts = elOrOpts as SimplePickerOpts;
-      el = undefined;
     }
 
     el = el || 'body';
