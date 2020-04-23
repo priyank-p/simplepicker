@@ -86,7 +86,7 @@ This method closes the picker without the user's action.
 Make sure you are not ruining user experience unnecessarily.
 
 #### `simplepicker.reset(date)`:
-
+  * `date` (required, `Date`) - the date to set after the reset.
 The reset allows to change the date of the simplepicker example:
 ```javascript
 const sp = new SimplePicker();
