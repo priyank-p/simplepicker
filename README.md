@@ -86,6 +86,8 @@ This method closes the picker without the user's action.
 Make sure you are not ruining user experience unnecessarily.
 
 #### `simplepicker.reset(date)`:
+This method overrides the current date selected in the control and assigns a new
+date.
   * `date` (required, `Date`) - the date to set after the reset.
 The reset allows to change the date of the simplepicker example:
 ```javascript
