@@ -34,7 +34,7 @@ class SimplePicker {
   private $date: HTMLElement;
   private $day: HTMLElement;
   private $time: HTMLElement;
-  private $timeInput: HTMLElement;
+  private $timeInput: HTMLInputElement;
   private $timeSectionIcon: HTMLElement;
   private $cancel: HTMLElement;
   private $ok: HTMLElement;
@@ -61,7 +61,6 @@ class SimplePicker {
       opts = {};
     }
 
-    this.selectedDate = new Date();
     this.$simplepicker = el;
     this.initElMethod(el);
     this.injectTemplate();
@@ -108,7 +107,6 @@ class SimplePicker {
     ];
 
     this.$time.classList.add('simplepicker-fade');
-    this.render(dateUtil.scrapeMonth(today));
 
     opts = opts || {};
     this.opts = opts;
@@ -136,6 +134,8 @@ class SimplePicker {
         } else {
             dte = selectedDate;
         }
+        this.selectedDate = dte;
+        this.render(dateUtil.scrapeMonth(this.selectedDate));
         const dtesDate = dte.getDate().toString();
         const $dteEl = this.findElementWithDate(dtesDate);
         if (!$dteEl.classList.contains('active')) {
@@ -172,6 +172,27 @@ class SimplePicker {
     });
   }
 
+  pad(n, width) {
+    n = n + '';
+    return n.length >= width ? n :
+        new Array(width - n.length + 1).join('0') + n;
+  }
+
+  getFormattedTime(dte) {
+      let hours = dte.getHours();
+      let minutes = dte.getMinutes();
+      let meridium = 'AM';
+
+      if (hours > 12) {
+          meridium = 'PM';
+          hours = hours - 12;
+      } else if (hours == 12) {
+          meridium = 'PM';
+      }
+      let result = this.pad(hours, 2) + ":" + this.pad(minutes, 2) + " " + meridium;
+      return result;
+  }
+
   updateDateComponents(date: Date) {
     const day = dateUtil.days[date.getDay()];
     const month = dateUtil.months[date.getMonth()];
@@ -182,6 +203,8 @@ class SimplePicker {
     this.$monthAndYear.innerHTML = monthAndYear;
     this.$day.innerHTML = day;
     this.$date.innerHTML = dateUtil.getDisplayDate(date);
+    this.$time.innerHTML = this.getFormattedTime(date);
+    this.$timeInput.value = this.pad(date.getHours(), 2) + ":" + this.pad(date.getMinutes(), 2);
   }
 
   render(data) {

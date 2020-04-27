@@ -60,7 +60,8 @@
 
     const $buttonWithDate = document.querySelector('.pickerwithdate');
     $buttonWithDate.addEventListener('click', (e) => {
-			simplepicker.reset(new Date(2020, 1, 28, 10, 0, 0));
+      var dte = new Date(2020, 1, 28, 10, 0, 0);
+      simplepicker.reset(dte);
       simplepicker.open();
     });
 
