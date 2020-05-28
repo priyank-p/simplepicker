@@ -33,7 +33,7 @@ class SimplePicker {
   private $date: HTMLElement;
   private $day: HTMLElement;
   private $time: HTMLElement;
-  private $timeInput: HTMLElement;
+  private $timeInput: HTMLInputElement;
   private $timeSectionIcon: HTMLElement;
   private $cancel: HTMLElement;
   private $ok: HTMLElement;
@@ -137,6 +137,13 @@ class SimplePicker {
       this.selectDateElement($dateEl);
       this.updateDateComponents(date);
     }
+
+    // The timeFull variable below will be formatted as HH:mm:ss.
+    // Using regular experssion we remove the :ss parts.
+    const timeFull = date.toTimeString().split(" ")[0]
+    const time = timeFull.replace(/\:\d\d$/, "");
+    this.$timeInput.value = time;
+    this.$time.innerText = dateUtil.formatTimeFromInputElement(time);
   }
 
   compactMode() {
