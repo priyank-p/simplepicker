@@ -46,7 +46,7 @@ class SimplePicker {
       el = undefined;
     }
 
-    el = el || 'body';
+    el = (elOrOpts as HTMLElement | string) || 'body';
     if (typeof el === 'string') {
       el = document.querySelector(el) as HTMLElement;
     }
