@@ -65,9 +65,8 @@ class SimplePicker {
     }
 
     this.selectedDate = new Date();
-    this.initElMethod(el);
     this.injectTemplate(el);
-    this.init(opts);
+    this.init(el, opts);
     this.initListeners();
 
     this._eventHandlers = {};
@@ -86,11 +85,12 @@ class SimplePicker {
     this.$$ = (sel) => el.querySelectorAll(sel);
   }
 
-  init(opts: SimplePickerOpts) {
-    const { $, $$ } = this;
+  init(el: HTMLElement, opts: SimplePickerOpts) {
+    this.$simplepickerWrapper = <HTMLElement> el.querySelector('.simplepicker-wrapper');
+    this.initElMethod(this.$simplepickerWrapper);
 
+    const { $, $$ } = this;
     this.$simplepicker = $('.simpilepicker-date-picker');
-    this.$simplepickerWrapper = $('.simplepicker-wrapper');
     this.$trs = $$('.simplepicker-calender tbody tr');
     this.$tds = $$('.simplepicker-calender tbody td');
     this.$headerMonthAndYear = $('.simplepicker-month-and-year');
