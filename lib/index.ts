@@ -39,20 +39,25 @@ class SimplePicker {
   private $ok: HTMLElement;
   private $displayDateElements: HTMLElement[];
 
-  constructor(elOrOpts?: SimplePickerOpts | string | HTMLElement, opts?: SimplePickerOpts) {
-    let el: HTMLElement | string | undefined;
-    if (typeof elOrOpts === 'object') {
-      opts = elOrOpts as SimplePickerOpts;
-      el = undefined;
-    }
+  constructor(arg1?: HTMLElement | string | SimplePickerOpts, arg2?: SimplePickerOpts) {
+    let el: HTMLElement | undefined = undefined;
+    let opts: SimplePickerOpts | undefined = arg2;
 
-    el = (elOrOpts as HTMLElement | string) || 'body';
-    if (typeof el === 'string') {
-      el = document.querySelector(el) as HTMLElement;
+    if (typeof arg1 === 'string') {
+      const element = <HTMLElement> document.querySelector(arg1);
+      if (element !== null) {
+        el = element;
+      } else {
+        throw new Error('Invalid selector passed to SimplePicker!');
+      }
+    } else if (arg1 instanceof HTMLElement) {
+      el = arg1;
+    } else if (typeof arg1 === 'object') {
+      opts = arg1 as SimplePickerOpts;
     }
 
     if (!el) {
-      throw new Error('SimplePicker: Valid selector or element must be passed!');
+      el = <HTMLElement> document.querySelector('body');
     }
 
     if (!opts) {
