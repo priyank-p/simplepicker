@@ -65,9 +65,8 @@ class SimplePicker {
     }
 
     this.selectedDate = new Date();
-    this.$simplepicker = el;
     this.initElMethod(el);
-    this.injectTemplate();
+    this.injectTemplate(el);
     this.init(opts);
     this.initListeners();
 
@@ -166,10 +165,10 @@ class SimplePicker {
     $timeSectionIcon.style.visibility = 'visible';
   }
 
-  injectTemplate() {
+  injectTemplate(el: HTMLElement) {
     const $template = document.createElement('template');
     $template.innerHTML = htmlTemplate;
-    this.$simplepicker.appendChild($template.content.cloneNode(true));
+    el.appendChild($template.content.cloneNode(true));
   }
 
   clearRows() {
