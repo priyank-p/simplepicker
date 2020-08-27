@@ -135,19 +135,19 @@ class SimplePicker {
     let date = newDate || new Date();
     this.render(dateUtil.scrapeMonth(date));
 
-    const dateString = date.getDate().toString();
-    const $dateEl = this.findElementWithDate(dateString);
-    if (!$dateEl.classList.contains('active')) {
-      this.selectDateElement($dateEl);
-      this.updateDateComponents(date);
-    }
-
     // The timeFull variable below will be formatted as HH:mm:ss.
     // Using regular experssion we remove the :ss parts.
     const timeFull = date.toTimeString().split(" ")[0]
     const time = timeFull.replace(/\:\d\d$/, "");
     this.$timeInput.value = time;
     this.$time.innerText = dateUtil.formatTimeFromInputElement(time);
+
+    const dateString = date.getDate().toString();
+    const $dateEl = this.findElementWithDate(dateString);
+    if (!$dateEl.classList.contains('active')) {
+      this.selectDateElement($dateEl);
+      this.updateDateComponents(date);
+    }
   }
 
   compactMode() {
