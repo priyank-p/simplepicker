@@ -27,7 +27,7 @@
 
   <script src="dist/simplepicker.js"></script>
   <script>
-    let simplepicker = new SimplePicker({
+    const simplepicker = new SimplePicker({
       zIndex: 10
     });
 
@@ -41,11 +41,11 @@
 
     // $eventLog.innerHTML += '\n\n';
     simplepicker.on('submit', (date, readableDate) => {
-      $eventLog.innerHTML += readableDate + '\n';
+      $evnetLog.innerHtml += `${readableDate} \n`
     });
 
     simplepicker.on('close', (date) => {
-      $eventLog.innerHTML += 'Picker Closed'  + '\n';
+      $evnetLog.innerHtml += `Picker Closed \n`
     });
   </script>
 </body>
