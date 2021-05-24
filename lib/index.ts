@@ -9,7 +9,12 @@ interface SimplePickerOpts {
   selectedDate?: Date;
 }
 
-type HandlerFunction = (...args: any[]) => void;
+const validListeners = [
+  'submit',
+  'close',
+] as const;
+
+type HandlerFunction = (...args: unknown[]) => void;
 interface EventHandlers {
   [key: string]: HandlerFunction[];
 }
@@ -20,7 +25,7 @@ class SimplePicker {
   $simplePicker: HTMLElement;
   readableDate: string;
   _eventHandlers: EventHandlers;
-  _validOnListeners: string[];
+  _validOnListeners = validListeners;
 
   private opts: SimplePickerOpts;
   private $: Function;
@@ -71,10 +76,6 @@ class SimplePicker {
     this.initListeners();
 
     this._eventHandlers = {};
-    this._validOnListeners = [
-      'submit',
-      'close',
-    ];
   }
 
   // We use $, $$ as helper method to conviently select
