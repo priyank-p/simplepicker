@@ -6,6 +6,7 @@ interface SimplePickerOpts {
   zIndex?: number;
   compactMode?: boolean;
   disableTimeSection?: boolean;
+  selectedDate?: Date;
 }
 
 type HandlerFunction = (...args: any[]) => void;
@@ -115,7 +116,7 @@ class SimplePicker {
     opts = opts || {};
     this.opts = opts;
 
-    this.reset(today);
+    this.reset(opts.selectedDate || today);
 
     if (opts.zIndex !== undefined) {
       this.$simplepickerWrapper.style.zIndex = opts.zIndex.toString();

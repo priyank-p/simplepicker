@@ -1,9 +1,10 @@
 type SimplePickerEvent = 'submit' | 'close';
 
 interface SimplePickerOpts {
-  zIndex: number;
-  compactMode: boolean;
-  disableTimeSection: boolean;
+  zIndex?: number;
+  compactMode?: boolean;
+  disableTimeSection?: boolean;
+  selectedDate?: Date;
 }
 
 declare class SimplePicker {
