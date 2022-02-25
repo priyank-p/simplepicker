@@ -15,17 +15,17 @@ export const htmlTemplate = `
         <div class="simplepicker-month-and-year"></div>
         <div class="simplepicker-date"></div>
         <div class="simplepicker-select-pane">
-          <button class="simplepicker-icon simplepicker-icon-calender active" title="Select date from calender!"></button>
+          <button type="button" class="simplepicker-icon simplepicker-icon-calender active" title="Select date from calender!"></button>
           <div class="simplepicker-time">12:00 PM</div>
-          <button class="simplepicker-icon simplepicker-icon-time" title="Select time"></button>
+          <button type="button" class="simplepicker-icon simplepicker-icon-time" title="Select time"></button>
         </div>
       </div>
       <div class="simplepicker-picker-section">
         <div class="simplepicker-calender-section">
           <div class="simplepicker-month-switcher simplepicker-select-pane">
-            <button class="simplepicker-icon simplepicker-icon-previous"></button>
+            <button type="button" class="simplepicker-icon simplepicker-icon-previous"></button>
             <div class="simplepicker-selected-date"></div>
-            <button class="simplepicker-icon simplepicker-icon-next"></button>
+            <button type="button" class="simplepicker-icon simplepicker-icon-next"></button>
           </div>
           <div class="simplepicker-calender">
             <table>
@@ -43,8 +43,8 @@ export const htmlTemplate = `
         </div>
       </div>
       <div class="simplepicker-bottom-part">
-        <button class="simplepicker-cancel-btn simplepicker-btn" title="Cancel">Cancel</button>
-        <button class="simplepicker-ok-btn simplepicker-btn" title="OK">OK</button>
+        <button type="button" class="simplepicker-cancel-btn simplepicker-btn" title="Cancel">Cancel</button>
+        <button type="button" class="simplepicker-ok-btn simplepicker-btn" title="OK">OK</button>
       </div>
   </div>
 </div>
