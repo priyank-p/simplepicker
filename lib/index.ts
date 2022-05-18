@@ -158,7 +158,8 @@ class SimplePicker {
   }
 
   disableTimeSection() {
-    const { $timeSectionIcon } = this;
+    const { $timeSectionIcon, $time } = this;
+    $time.style.visibility = 'hidden';
     $timeSectionIcon.style.visibility = 'hidden';
   }
 
